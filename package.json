@@ -5,12 +5,13 @@
     "uuid": "^9.0.0"
   },
   "scripts": {
-    "start": "npm run build && node dist/bundle.js",
-    "build": "node build.mjs",
-    "dev": "nodemon src/api/index.ts"
+    "start": "npm run build && node dist/index.js",
+    "build": "sh scripts/build.sh",
+    "dev": "nodemon src/index.ts"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "dotenv": "^16.0.3",
     "esbuild": "^0.17.19",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",

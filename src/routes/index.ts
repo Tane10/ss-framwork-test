@@ -12,7 +12,6 @@ export abstract class BaseRoute<T> {
   constructor(controller: BaseController<T>) {
     this.router = Router();
     this.controller = controller;
-
     this.configureRoutes();
   }
 

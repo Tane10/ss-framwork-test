@@ -10,6 +10,8 @@ import { SubmitEntryRoute } from './routes/submitEntryRoute';
 import { SubmitEntryController } from './controllers/submitEntryController';
 import { SubmitEntryService } from './services/submitEntryService';
 import path from 'path';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 class App {
   private readonly app: Application;
@@ -25,11 +27,10 @@ class App {
   private initializeMiddlewares(): void {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+    this.app.use(express.static(path.join(__dirname, '../public')));
   }
 
   private initializeRoutes(): void {
-    this.app.use(express.static(path.join(__dirname, 'public')));
-
     // Root route
     this.app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, 'index.html'));

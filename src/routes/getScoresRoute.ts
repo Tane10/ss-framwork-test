@@ -12,8 +12,8 @@ export class GetScoresRoute extends BaseRoute<Score> {
   }
 
   protected configureRoutes(): void {
-    // this.router.get('/api/getScores', (req: Request, res: Response) =>
-    //   this.getScoresController.getEntities<Score>(req, res)
-    // );
+    this.router.get('/api/getScores', (req: Request, res: Response) =>
+      this.getScoresController.getEntities(req, res)
+    );
   }
 }

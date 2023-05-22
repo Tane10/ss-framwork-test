@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import seedData from './seedData.json';
 
 // In-memory Database
 export class Database<T> {
@@ -6,6 +7,17 @@ export class Database<T> {
 
   constructor() {
     this.entities = [];
+
+    if (process.env.STAGE === 'DEV') {
+      this.seedData();
+    }
+  }
+
+  public seedData(): void {
+    this.entities.push(...(seedData as any));
+
+    if (this.entities.length > 0) console.log('Score data seeded');
+    else console.log('Data seeding failed');
   }
 
   public getAll(): T[] {

@@ -1,6 +1,7 @@
 import { BaseController } from '.';
 import { Score } from '../models';
 import { GetScoresService } from '../services/getScoresService';
+import { Request, Response } from 'express';
 
 export class GetScoresController extends BaseController<Score> {
   protected service: GetScoresService;
@@ -10,8 +11,9 @@ export class GetScoresController extends BaseController<Score> {
     this.service = service;
   }
 
-  //   public getEntities<Array<Score>>(req: Request, res: Response): Score[] {
-  //     const scores = this.service.getAll();
-  //     return scores
-  //   }
+  public getEntities(req: Request, res: Response): Score[] {
+    const scores = this.service.getAll();
+    res.json(scores);
+    return scores;
+  }
 }

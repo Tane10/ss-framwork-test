@@ -1,12 +1,11 @@
 import { build } from 'esbuild';
-import { copyFileSync } from 'fs';
 
 async function main() {
   try {
     // Build TypeScript code
     const result = await build({
-      entryPoints: ['src/api/index.ts'],
-      outfile: 'dist/bundle.js',
+      entryPoints: ['src/index.ts'],
+      outdir: 'dist',
       bundle: true,
       platform: 'node',
       target: 'node18',
@@ -15,7 +14,7 @@ async function main() {
     });
 
     // Copy public folder and index.html to dist
-    copyFileSync('public/index.html', 'dist/index.html');
+    // cp('./public/', 'dist/public', (error) => console.log(error));
 
     if (result.errors.length > 0) {
       console.error('Build failed with compile errors:');

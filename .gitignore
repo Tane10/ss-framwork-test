@@ -1,1 +1,35 @@
+# Ignore node_modules directory
 node_modules/
+
+# Ignore built output and compiled files
+/dist/
+/out/
+/.tscache/
+*.js
+*.js.map
+
+# Ignore editor and IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore environment variables and configuration files
+.env
+.env.local
+.env.*.local
+.env.test
+.env.production
+
+# Ignore log files
+*.log
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore package-lock.json for npm
+package-lock.json
+
+# Ignore yarn.lock for Yarn
+yarn.lock

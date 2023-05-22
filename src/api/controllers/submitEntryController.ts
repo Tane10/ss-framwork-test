@@ -3,8 +3,9 @@
 // });
 import { BaseController } from '.';
 import { SubmitEntryService } from '../services/submitEntryService';
+import { Score } from '../models/index';
 
-export class SubmitEntryController extends BaseController<undefined> {
+export class SubmitEntryController extends BaseController<Score> {
   protected service: SubmitEntryService;
 
   constructor(service: SubmitEntryService) {

@@ -1,4 +1,5 @@
 import { BaseService } from '.';
+import { Score } from '../models';
 
 export class SubmitEntryService extends BaseService<Score> {
   // public getAll(): Score[] {
@@ -10,7 +11,7 @@ export class SubmitEntryService extends BaseService<Score> {
   // }
 
   public create(score: Score): Score {
-    return this.database.create<Score>(score);
+    return this.database.create(score);
   }
 
   // public update(id: number, updatedUser: User): User | undefined {

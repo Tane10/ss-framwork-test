@@ -15,21 +15,5 @@ export class SubmitEntryRoute extends BaseRoute<Score> {
     // this.router.post('/api/submitEntry', (req: Request, res: Response) =>
     //   this.submitEntryController.create(req, res)
     // );
-    // this.router.get(
-    //   '/users/:id',
-    //   this.userController.getById.bind(this.userController)
-    // );
-    // this.router.post(
-    //   '/users',
-    //   this.userController.create.bind(this.userController)
-    // );
-    // this.router.put(
-    //   '/users/:id',
-    //   this.userController.update.bind(this.userController)
-    // );
-    // this.router.delete(
-    //   '/users/:id',
-    //   this.userController.delete.bind(this.userController)
-    // );
   }
 }

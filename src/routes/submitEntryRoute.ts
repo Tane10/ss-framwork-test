@@ -12,8 +12,8 @@ export class SubmitEntryRoute extends BaseRoute<Score> {
   }
 
   protected configureRoutes(): void {
-    // this.router.post('/api/submitEntry', (req: Request, res: Response) =>
-    //   this.submitEntryController.create(req, res)
-    // );
+    this.router.post('/api/submitEntry', (req: Request, res: Response) =>
+      this.submitEntryController.createEntity(req, res)
+    );
   }
 }

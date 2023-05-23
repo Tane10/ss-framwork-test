@@ -10,6 +10,8 @@ import { SubmitEntryRoute } from './routes/submitEntryRoute';
 import { SubmitEntryController } from './controllers/submitEntryController';
 import { SubmitEntryService } from './services/submitEntryService';
 import path from 'path';
+import cors from 'cors';
+
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -20,17 +22,18 @@ class App {
   constructor(port: number) {
     this.app = express();
     this.port = port;
-    this.initializeMiddlewares();
-    this.initializeRoutes();
+    this.initialiseMiddleware();
+    this.initialiseRoutes();
   }
 
-  private initializeMiddlewares(): void {
+  private initialiseMiddleware(): void {
+    this.app.use(cors());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use(express.static(path.join(__dirname, '../public')));
   }
 
-  private initializeRoutes(): void {
+  private initialiseRoutes(): void {
     // Root route
     this.app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, 'index.html'));

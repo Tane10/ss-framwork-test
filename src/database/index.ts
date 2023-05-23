@@ -1,12 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
-import seedData from './seedData.json';
+import seedData from './data/seedData.json';
 
-// In-memory Database
 export class Database<T> {
-  private entities: T[];
+  private entities: Map<string, T>;
 
   constructor() {
-    this.entities = [];
+    this.entities = new Map();
 
     if (process.env.STAGE === 'DEV') {
       this.seedData();
@@ -14,45 +13,49 @@ export class Database<T> {
   }
 
   public seedData(): void {
-    this.entities.push(...(seedData as any));
+    seedData.forEach((entity) => {
+      const id = uuidv4();
+      const newEntity: any = { ...entity, id };
+      this.entities.set(id, newEntity);
+    });
 
-    if (this.entities.length > 0) console.log('Score data seeded');
-    else console.log('Data seeding failed');
+    if (this.entities.size > 0) {
+      console.log('Score data seeded');
+    } else {
+      console.log('Data seeding failed');
+    }
   }
 
   public getAll(): T[] {
-    return this.entities;
+    return Array.from(this.entities.values());
   }
 
-  public getById(id: string): T | undefined {
-    return this.entities.find((entity) => (entity as any).id === id);
-  }
+  // public getById(id: string): T | undefined {
+  //   return this.entities.get(id);
+  // }
 
-  public create(entity: T): T {
+  public create(entity: any): T {
     const id = uuidv4();
     const newEntity = { ...entity, id };
-    this.entities.push(newEntity);
+    this.entities.set(id, newEntity);
     return newEntity;
   }
 
-  public update(id: string, updatedEntity: T): T | undefined {
-    const index = this.entities.findIndex(
-      (entity) => (entity as any).id === id
-    );
-    if (index !== -1) {
-      this.entities[index] = { ...updatedEntity, id };
-      return this.entities[index];
-    }
-    return undefined;
-  }
+  // public update(id: string, updatedEntity: T): T | undefined {
+  //   if (this.entities.has(id)) {
+  //     const updated = { ...updatedEntity, id };
+  //     this.entities.set(id, updated);
+  //     return updated;
+  //   }
+  //   return undefined;
+  // }
 
-  public delete(id: string): T | undefined {
-    const index = this.entities.findIndex(
-      (entity) => (entity as any).id === id
-    );
-    if (index !== -1) {
-      return this.entities.splice(index, 1)[0];
-    }
-    return undefined;
-  }
+  // public delete(id: string): T | undefined {
+  //   if (this.entities.has(id)) {
+  //     const deleted = this.entities.get(id);
+  //     this.entities.delete(id);
+  //     return deleted;
+  //   }
+  //   return undefined;
+  // }
 }

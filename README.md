@@ -67,6 +67,6 @@ This command uses nodemon to monitor changes in the source files and automatical
 
 The application provides the following API routes:
 
-GET /api/getScores - Get all scores
-GET / - serves static HTML file
-POST /api/submitEntry - Submits a users name and word, calculates score and adds to database
+- GET /api/getScores => Get all scores
+- GET / => serves static HTML file
+- POST /api/submitEntry => Submits a users name and word, calculates score and adds to database

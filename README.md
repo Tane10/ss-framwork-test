@@ -3,13 +3,23 @@
 This is a TypeScript Node.js Express API with an in-memory database, implemented in an OOP style. The application includes two routes and follows the MVC pattern.
 
 - [Express Application](#express-application)
+  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Configuration](#configuration)
+    - [ESLint](#eslint)
+    - [Linting](#linting)
   - [Building the Application](#building-the-application)
   - [Starting the Application](#starting-the-application)
   - [Development Mode](#development-mode)
   - [API Documentation](#api-documentation)
   - [Note](#note)
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (v18 or above)
+- npm (Node Package Manager)
 
 ## Installation
 
@@ -33,6 +43,20 @@ STAGE=DEV #If DEV then database will be seeded
 ```
 
 Adjust the PORT value as needed. This is the port on which the application will run.
+
+### ESLint
+
+ESLint is used for code linting and follows the rules defined in the .eslintrc.js configuration file. You can modify this file to adjust the linting rules to your preferences.
+
+### Linting
+
+To run ESLint and check for code linting issues:
+
+```shell
+npm run lint
+```
+
+ESLint is configured with rules defined in the .eslintrc.js file. Make sure to fix any reported linting issues before committing your code.
 
 ## Building the Application
 

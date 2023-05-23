@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import express, { Application } from 'express';
 import { Database } from './database';
 import { GetScoresService } from './services/getScoresService';
@@ -58,17 +59,10 @@ class App {
     this.app.use(getScoresRoute.getRouter());
     this.app.use(submitEntryRoute.getRouter());
 
-    this.app.use(
-      (
-        err: Error,
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
-      ) => {
-        console.error(err);
-        res.status(500).json({ error: 'Internal Server Error' });
-      }
-    );
+    this.app.use((err: Error, req: express.Request, res: express.Response) => {
+      console.error(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    });
   }
 
   private createRoute<

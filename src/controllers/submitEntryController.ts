@@ -14,11 +14,12 @@ export class SubmitEntryController extends BaseController<Score> {
     this.service = service;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private validateRequestBody(body: any): ValidatedRequest {
     const error = new ErrorMessage();
 
     const expectedKeys = ['name', 'word'];
-    let result = { valid: false, value: null };
+    const result = { valid: false, value: null };
 
     // Check if the request body contains only the expected keys
     const hasExpectedKeys = Object.keys(body).every((key) =>

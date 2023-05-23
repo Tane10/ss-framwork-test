@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import oxfordDictionary from '../database/data/dicts.json';
 import { OxfordDictionary } from '../types';
 

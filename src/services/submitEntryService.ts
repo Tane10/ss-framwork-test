@@ -2,7 +2,6 @@ import { BaseService } from '.';
 import { Score } from '../models';
 import { ScoreRequestBody } from '../types';
 import letterScores from '../database/data/letterScores.json';
-import { validateWord } from '../util/wordLookUp';
 
 export class SubmitEntryService extends BaseService<Score> {
   private calculateWordScore(word: string): number {

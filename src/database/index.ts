@@ -30,32 +30,10 @@ export class Database<T> {
     return Array.from(this.entities.values());
   }
 
-  // public getById(id: string): T | undefined {
-  //   return this.entities.get(id);
-  // }
-
   public create(entity: any): T {
     const id = uuidv4();
     const newEntity = { ...entity, id };
     this.entities.set(id, newEntity);
     return newEntity;
   }
-
-  // public update(id: string, updatedEntity: T): T | undefined {
-  //   if (this.entities.has(id)) {
-  //     const updated = { ...updatedEntity, id };
-  //     this.entities.set(id, updated);
-  //     return updated;
-  //   }
-  //   return undefined;
-  // }
-
-  // public delete(id: string): T | undefined {
-  //   if (this.entities.has(id)) {
-  //     const deleted = this.entities.get(id);
-  //     this.entities.delete(id);
-  //     return deleted;
-  //   }
-  //   return undefined;
-  // }
 }

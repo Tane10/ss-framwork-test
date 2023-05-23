@@ -5,7 +5,6 @@ node_modules/
 /dist/
 /out/
 /.tscache/
-*.js
 *.js.map
 
 # Ignore editor and IDE specific files

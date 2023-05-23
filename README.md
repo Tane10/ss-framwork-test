@@ -9,6 +9,7 @@ This is a TypeScript Node.js Express API with an in-memory database, implemented
   - [Starting the Application](#starting-the-application)
   - [Development Mode](#development-mode)
   - [API Documentation](#api-documentation)
+  - [Note](#note)
 
 ## Installation
 
@@ -70,3 +71,7 @@ The application provides the following API routes:
 - GET /api/getScores => Get all scores
 - GET / => serves static HTML file
 - POST /api/submitEntry => Submits a users name and word, calculates score and adds to database
+
+## Note
+
+Some words will error as we are using the [Oxford-Dictionary-Json](https://github.com/cduica/Oxford-Dictionary-Json) to validate the words submitted.
